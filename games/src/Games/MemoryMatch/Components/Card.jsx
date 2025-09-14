@@ -25,7 +25,7 @@ function Card({ name, img, index }) {
       onClick={handleClick}
     >
      <div
-        className={`relative w-full h-full transition-transform duration-500`}
+        className={`relative w-full h-full transition-transform duration-500 border-2 rounded-2xl`}
         style={{
           transformStyle: "preserve-3d",
           transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
@@ -33,7 +33,7 @@ function Card({ name, img, index }) {
       >
         
        <div
-          className="absolute w-full h-full rounded-xl bg-cover bg-center"
+          className="absolute w-full h-full rounded-xl bg-cover bg-center border-2"
           style={{
             backgroundImage: `url(${CardCover})`,
             backfaceVisibility: "hidden",

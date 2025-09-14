@@ -71,7 +71,7 @@ function MemoryMatch({ selectGameFunc }) {
   }, [matched])
 
   return (
-    <div>
+    <div className="bg-gray-100">
       <button
         className="absolute top-10 left-10 bg-blue-500 text-white rounded hover:bg-blue-600 transition font-extrabold p-2 z-50"
         onClick={() => selectGameFunc(null)}
