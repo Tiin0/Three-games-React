@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Banner from '../MathRush/Banner';
 
 const MathRush = ({selectGameFunc}) => {
   const [maxRandomNum, setMaxRandomNum] = useState(5);
@@ -13,6 +14,15 @@ const MathRush = ({selectGameFunc}) => {
 
   const timerRef = useRef(null);
   const simbols = ['+', '-', '*', '/'];
+
+  function resetGame() {
+    setScore(0);
+    setDifficulty('easy');
+    setMaxRandomNum(5);
+    setNumberOfNums(2);
+    setGameOver(false);
+    generateQuestion();
+    }
 
   function getOperation() {
     const newNums = [];
@@ -132,27 +142,6 @@ const MathRush = ({selectGameFunc}) => {
     return () => clearInterval(timerRef.current);
   }, [correctResult]);
 
-  if (gameOver) {
-    return (
-      <div className='flex flex-col justify-center items-center w-full h-[100vh] bg-gray-100'>
-        <h1 className='text-4xl font-bold mb-4'>Game Over</h1>
-        <p className='text-2xl'>Score: {score}</p>
-        <button
-          onClick={() => {
-            setScore(0);
-            setDifficulty('easy');
-            setMaxRandomNum(5);
-            setNumberOfNums(2);
-            setGameOver(false);
-            generateQuestion();
-          }}
-          className='mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition'
-        >
-          Restart
-        </button>
-      </div>
-    );
-  }
 
   return (
     <div className='flex flex-col justify-center items-center w-full h-[100vh] bg-gray-100'>
@@ -163,13 +152,11 @@ const MathRush = ({selectGameFunc}) => {
         Back to Menu
       </button>
 
-      <h1 className='absolute top-4 left-[50%] -translate-x-1/2 text-3xl font-extrabold'>
-        Difficulty: {difficulty}
-      </h1>
-      <h2 className='absolute top-16 left-[50%] -translate-x-1/2 text-2xl font-semibold'>
+      
+      <h2 className='absolute top-10 right-10 bg-blue-500 text-white rounded hover:bg-blue-600 transition font-extrabold p-2 cursor-pointer"'>
         Score: {score}
       </h2>
-      <h3 className='absolute top-24 left-[50%] -translate-x-1/2 text-xl font-medium'>
+      <h3 className='absolute top-23 right-10 bg-blue-500 text-white rounded hover:bg-blue-600 transition font-extrabold p-2 cursor-pointer'>
         Time Left: {timeLeft}s
       </h3>
 
@@ -192,8 +179,9 @@ const MathRush = ({selectGameFunc}) => {
           </button>
         </form>
       </div>
+      {gameOver && <Banner score={score} resetGame={() => resetGame()}/>}
     </div>
   );
-};
+}
 
 export default MathRush;

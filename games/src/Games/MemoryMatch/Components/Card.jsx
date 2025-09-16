@@ -21,7 +21,7 @@ function Card({ name, img, index }) {
 
   return (
     <div
-      className="w-[200px] h-[300px] cursor-pointer [perspective:1000px]"
+      className="card cursor-pointer [perspective:1000px]"
       onClick={handleClick}
     >
      <div

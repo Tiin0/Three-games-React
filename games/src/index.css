@@ -10,3 +10,42 @@
   animation: flip 0.6s ease forwards;
   transform-style: preserve-3d;
 }
+
+.video-player {
+  width: 500px;
+  heigth:auto;
+}
+
+.card {
+  width: 200px;
+  height: 300px;
+}
+
+@media (max-width: 400px) {
+  .video-player {
+    width: 300px;
+    height: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    width: width: 150px;
+    height: 250px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 500px) {
+  .video-player {
+    width: 380px;
+    height: auto;
+  }
+}
+
+@media (min-width: 500px) and (max-width:550px){
+  .video-player {
+    width: 480px;
+    height: auto;
+  }
+}
+
