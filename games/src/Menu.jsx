@@ -9,7 +9,10 @@ function Menu({ selectGameFunc }) {
   const mathRushVideoPlayer = useRef(null);
 
   return (
-    <div className="w-full h-[100vh] flex justify-center items-center gap-4 flex-wrap">
+    <div>
+      
+      <div className="w-full h-[100vh] flex justify-center items-center gap-4 flex-wrap">
+
       <button
         className="w-auto h-auto border-4 relative rounded-2xl cursor-pointer shrink-0"
         onClick={() => selectGameFunc("Wordle")}
@@ -79,6 +82,8 @@ function Menu({ selectGameFunc }) {
         </video>
       </button>
     </div>
+    </div>
+    
   );
 }
 
