@@ -37,9 +37,11 @@ npm run dev
 
 ![wordle](https://github.com/user-attachments/assets/20884eef-ee51-41c0-8f2a-6a7f5f379e50)
 
-<img width="1431" height="804" alt="Screenshot 2025-09-14 alle 14 46 13" src="https://github.com/user-attachments/assets/905e0938-176b-4cc3-8f58-7b3905b6ee2f" />
 
-<img width="1431" height="808" alt="Screenshot 2025-09-14 alle 14 46 47" src="https://github.com/user-attachments/assets/1ae49cdd-685c-41ef-a364-3c175eabd819" />
+<img width="1435" height="812" alt="Screenshot 2025-09-26 alle 15 04 51" src="https://github.com/user-attachments/assets/6fd4e074-3a3a-4283-981e-793b02e4a5c8" />
+
+
+<img width="1436" height="815" alt="Screenshot 2025-09-26 alle 15 05 27" src="https://github.com/user-attachments/assets/6046713e-3023-472b-b831-fc2c1826a04a" />
 
 
 ---
@@ -49,3 +51,6 @@ npm run dev
 This project is personal and educational.
 All images used in this project are royalty-free / no copyright.
 No logos, trademarks, or copyrighted content are included.
+
+This project uses Vite, which is distributed under the MIT License.
+You can find Vite's license here: https://github.com/vitejs/vite/blob/main/LICENSE.md
