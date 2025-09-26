@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer, useState, useRef } from "react";
 import Grid from "./Components/Grid";
 import wordsList from "./words.json";
 import Banner from './Components/Banner';
@@ -47,6 +47,7 @@ function reducer(state, action) {
 
 function Wordle({selectGameFunc}) {
   const [grid, dispatch] = useReducer(reducer, initialState);
+  const hiddenInputRef = useRef(null);
   const [currentRow, setCurrentRow] = useState(0);
   const [currentCol, setCurrentCol] = useState(0);
   const [secretWord, setSecretWord] = useState("");
@@ -57,6 +58,16 @@ function Wordle({selectGameFunc}) {
   useEffect(() => {
     const wordIndex = Math.floor(Math.random() * wordsList.length);
     setSecretWord(wordsList[wordIndex].toUpperCase());
+  }, []);
+
+   useEffect(() => {
+    const handleClick = () => {
+      hiddenInputRef.current?.focus();
+    };
+    document.addEventListener("click", handleClick);
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
   }, []);
 
   useEffect(() => {
@@ -137,6 +148,18 @@ function Wordle({selectGameFunc}) {
       {alert && <div className="text-red-600 h-[50px] w-auto font-extrabold mt-5">Word not in List!</div>}
       <Grid grid={grid.grid} />
       {freeze && <Banner userWon={input === secretWord ? true : false} resetGame={restartGame} secretWord={secretWord}/>}
+
+      {/*Invisivble input to trigger keyboard on mobile*/}
+       <input
+        ref={hiddenInputRef}
+        type="text"
+        autoComplete="off"
+        style={{
+          position: "absolute",
+          opacity: 0,
+          pointerEvents: "none",
+        }}
+      />
     </div>
   );
 }
